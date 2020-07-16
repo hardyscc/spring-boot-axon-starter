@@ -4,6 +4,7 @@ import com.example.sbas.commands.CreateAccountCommand;
 import com.example.sbas.commands.CreditMoneyCommand;
 import com.example.sbas.commands.DebitMoneyCommand;
 import com.example.sbas.events.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -12,6 +13,7 @@ import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
 @Aggregate
+@Getter
 @NoArgsConstructor
 public class AccountAggregate {
 
