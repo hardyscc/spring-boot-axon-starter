@@ -25,6 +25,6 @@ public class AccountQueryServiceImpl implements AccountQueryService {
 
     @Override
     public Account getAccount(String accountNumber) {
-        return accountRepository.findById(accountNumber).orElseThrow();
+        return accountRepository.findById(accountNumber).orElse(null);
     }
 }

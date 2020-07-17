@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class AccountAggregateUpdater {
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
-    private EventSourcingRepository<AccountAggregate> accountAggregateEventSourcingRepository;
+    private final EventSourcingRepository<AccountAggregate> accountAggregateEventSourcingRepository;
 
     @EventSourcingHandler
     void on(BaseEvent<String> event){
