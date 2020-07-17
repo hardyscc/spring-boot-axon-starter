@@ -11,6 +11,7 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Aggregate
 @Getter
@@ -27,6 +28,7 @@ public class AccountAggregate {
     private String status;
 
     @CommandHandler
+    @Autowired(required = false)
     public AccountAggregate(CreateAccountCommand createAccountCommand){
         AggregateLifecycle.apply(new AccountCreatedEvent(createAccountCommand.id, createAccountCommand.accountBalance, createAccountCommand.currency));
     }
