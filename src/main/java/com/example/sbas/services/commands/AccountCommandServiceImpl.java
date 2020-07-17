@@ -6,6 +6,7 @@ import com.example.sbas.commands.DebitMoneyCommand;
 import com.example.sbas.dto.commands.AccountCreateDTO;
 import com.example.sbas.dto.commands.MoneyCreditDTO;
 import com.example.sbas.dto.commands.MoneyDebitDTO;
+import lombok.AllArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +14,10 @@ import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @Service
+@AllArgsConstructor
 public class AccountCommandServiceImpl implements AccountCommandService {
 
     private final CommandGateway commandGateway;
-
-    public AccountCommandServiceImpl(CommandGateway commandGateway) {
-        this.commandGateway = commandGateway;
-    }
 
     @Override
     public CompletableFuture<String> createAccount(AccountCreateDTO accountCreateDTO) {

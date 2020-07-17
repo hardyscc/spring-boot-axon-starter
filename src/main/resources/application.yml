@@ -7,3 +7,8 @@ spring:
       path: /console
 #  jpa:
 #    show-sql: true
+
+graphql:
+  spqr:
+    gui:
+      enabled: true

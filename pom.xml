@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<axon.version>4.3.3</axon.version>
+		<graphql-spqr-sb.version>0.0.4</graphql-spqr-sb.version>
 		<springdoc.version>1.4.3</springdoc.version>
 	</properties>
 
@@ -33,6 +34,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-spring-boot-starter</artifactId>
@@ -41,6 +43,17 @@
 				<exclusion>
 					<groupId>org.axonframework</groupId>
 					<artifactId>axon-server-connector</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>io.leangen.graphql</groupId>
+			<artifactId>graphql-spqr-spring-boot-starter</artifactId>
+			<version>${graphql-spqr-sb.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.github.classgraph</groupId>
+					<artifactId>classgraph</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
