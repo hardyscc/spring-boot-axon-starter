@@ -25,14 +25,14 @@ public class AccountCommandController {
     @PutMapping(value = "/credits/{accountNumber}")
     public CompletableFuture<String> creditMoneyToAccount(
             @PathVariable(value = "accountNumber") String accountNumber,
-            @RequestBody MoneyCreditDTO moneyCreditDTO){
+            @RequestBody MoneyCreditDTO moneyCreditDTO) {
         return accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
     }
 
     @PutMapping(value = "/debits/{accountNumber}")
     public CompletableFuture<String> debitMoneyFromAccount(
             @PathVariable(value = "accountNumber") String accountNumber,
-            @RequestBody MoneyDebitDTO moneyDebitDTO){
+            @RequestBody MoneyDebitDTO moneyDebitDTO) {
         return accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
     }
 }

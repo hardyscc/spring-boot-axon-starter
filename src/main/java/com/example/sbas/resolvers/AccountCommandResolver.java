@@ -28,14 +28,14 @@ public class AccountCommandResolver {
     @GraphQLMutation
     public CompletableFuture<String> creditMoneyToAccount(
             @GraphQLArgument(name = "accountNumber") String accountNumber,
-            @GraphQLArgument(name = "input") MoneyCreditDTO moneyCreditDTO){
+            @GraphQLArgument(name = "input") MoneyCreditDTO moneyCreditDTO) {
         return accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
     }
 
     @GraphQLMutation
     public CompletableFuture<String> debitMoneyFromAccount(
             @GraphQLArgument(name = "accountNumber") String accountNumber,
-            @GraphQLArgument(name = "input") MoneyDebitDTO moneyDebitDTO){
+            @GraphQLArgument(name = "input") MoneyDebitDTO moneyDebitDTO) {
         return accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
     }
 }
