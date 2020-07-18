@@ -4,7 +4,7 @@ public class BaseEvent<T> {
 
     public final T id;
 
-    public BaseEvent(T id) {
+    BaseEvent(T id) {
         this.id = id;
     }
 }

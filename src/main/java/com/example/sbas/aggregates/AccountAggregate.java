@@ -35,17 +35,17 @@ public class AccountAggregate {
 
     @EventSourcingHandler
     protected void on(AccountCreatedEvent accountCreatedEvent) {
-        this.id = accountCreatedEvent.id;
-        this.accountBalance = accountCreatedEvent.accountBalance;
-        this.currency = accountCreatedEvent.currency;
-        this.status = String.valueOf(Status.CREATED);
+        id = accountCreatedEvent.id;
+        accountBalance = accountCreatedEvent.accountBalance;
+        currency = accountCreatedEvent.currency;
+        status = String.valueOf(Status.CREATED);
 
-        AggregateLifecycle.apply(new AccountActivatedEvent(this.id, Status.ACTIVATED));
+        AggregateLifecycle.apply(new AccountActivatedEvent(id, Status.ACTIVATED));
     }
 
     @EventSourcingHandler
     protected void on(AccountActivatedEvent accountActivatedEvent) {
-        this.status = String.valueOf(accountActivatedEvent.status);
+        status = String.valueOf(accountActivatedEvent.status);
     }
 
     @CommandHandler
@@ -55,11 +55,10 @@ public class AccountAggregate {
 
     @EventSourcingHandler
     protected void on(MoneyCreditedEvent moneyCreditedEvent) {
-        if (this.accountBalance < 0 & (this.accountBalance + moneyCreditedEvent.creditAmount) >= 0) {
-            AggregateLifecycle.apply(new AccountActivatedEvent(this.id, Status.ACTIVATED));
-        }
+        if (accountBalance < 0 & (accountBalance + moneyCreditedEvent.creditAmount) >= 0)
+            AggregateLifecycle.apply(new AccountActivatedEvent(id, Status.ACTIVATED));
 
-        this.accountBalance += moneyCreditedEvent.creditAmount;
+        accountBalance += moneyCreditedEvent.creditAmount;
     }
 
     @CommandHandler
@@ -69,15 +68,14 @@ public class AccountAggregate {
 
     @EventSourcingHandler
     protected void on(MoneyDebitedEvent moneyDebitedEvent) {
-        if (this.accountBalance >= 0 & (this.accountBalance - moneyDebitedEvent.debitAmount) < 0) {
-            AggregateLifecycle.apply(new AccountHeldEvent(this.id, Status.HOLD));
-        }
+        if (accountBalance >= 0 & (accountBalance - moneyDebitedEvent.debitAmount) < 0)
+            AggregateLifecycle.apply(new AccountHeldEvent(id, Status.HOLD));
 
-        this.accountBalance -= moneyDebitedEvent.debitAmount;
+        accountBalance -= moneyDebitedEvent.debitAmount;
     }
 
     @EventSourcingHandler
     protected void on(AccountHeldEvent accountHeldEvent) {
-        this.status = String.valueOf(accountHeldEvent.status);
+        status = String.valueOf(accountHeldEvent.status);
     }
 }

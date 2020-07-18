@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootAxonStarterApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAxonStarterApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootAxonStarterApplication.class, args);
+    }
 
 }
