@@ -22,20 +22,20 @@ public class AccountCommandResolver {
     @GraphQLMutation
     public CompletableFuture<String> createAccount(
             @GraphQLArgument(name = "input") AccountCreateDTO accountCreateDTO) {
-        return accountCommandService.createAccount(accountCreateDTO);
+        return this.accountCommandService.createAccount(accountCreateDTO);
     }
 
     @GraphQLMutation
     public CompletableFuture<String> creditMoneyToAccount(
             @GraphQLArgument(name = "accountNumber") String accountNumber,
             @GraphQLArgument(name = "input") MoneyCreditDTO moneyCreditDTO) {
-        return accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
+        return this.accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
     }
 
     @GraphQLMutation
     public CompletableFuture<String> debitMoneyFromAccount(
             @GraphQLArgument(name = "accountNumber") String accountNumber,
             @GraphQLArgument(name = "input") MoneyDebitDTO moneyDebitDTO) {
-        return accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
+        return this.accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
     }
 }

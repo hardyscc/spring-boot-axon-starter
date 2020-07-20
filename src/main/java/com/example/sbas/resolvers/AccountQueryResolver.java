@@ -19,11 +19,11 @@ public class AccountQueryResolver {
 
     @GraphQLQuery
     public Account getAccount(@GraphQLArgument(name = "accountNumber") String accountNumber) {
-        return accountQueryService.getAccount(accountNumber);
+        return this.accountQueryService.getAccount(accountNumber);
     }
 
     @GraphQLQuery
     public List<Object> listEventsForAccount(@GraphQLArgument(name = "accountNumber") String accountNumber) {
-        return accountQueryService.listEventsForAccount(accountNumber);
+        return this.accountQueryService.listEventsForAccount(accountNumber);
     }
 }

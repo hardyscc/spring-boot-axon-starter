@@ -20,11 +20,11 @@ public class AccountQueryServiceImpl implements AccountQueryService {
 
     @Override
     public List<Object> listEventsForAccount(String accountNumber) {
-        return eventStore.readEvents(accountNumber).asStream().map(Message::getPayload).collect(Collectors.toList());
+        return this.eventStore.readEvents(accountNumber).asStream().map(Message::getPayload).collect(Collectors.toList());
     }
 
     @Override
     public Account getAccount(String accountNumber) {
-        return accountRepository.findById(accountNumber).orElse(null);
+        return this.accountRepository.findById(accountNumber).orElse(null);
     }
 }

@@ -19,11 +19,11 @@ public class AccountQueryController {
 
     @GetMapping("/{accountNumber}")
     public Account getAccount(@PathVariable(value = "accountNumber") String accountNumber) {
-        return accountQueryService.getAccount(accountNumber);
+        return this.accountQueryService.getAccount(accountNumber);
     }
 
     @GetMapping("/{accountNumber}/events")
     public List<Object> listEventsForAccount(@PathVariable(value = "accountNumber") String accountNumber) {
-        return accountQueryService.listEventsForAccount(accountNumber);
+        return this.accountQueryService.listEventsForAccount(accountNumber);
     }
 }

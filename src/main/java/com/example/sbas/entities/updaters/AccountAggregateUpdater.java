@@ -19,19 +19,19 @@ public class AccountAggregateUpdater {
 
     @EventSourcingHandler
     void on(BaseEvent<String> event) {
-        persistAccount(buildQueryAccount(getAccountFromEvent(event)));
+        this.persistAccount(this.buildQueryAccount(this.getAccountFromEvent(event)));
     }
 
     private AccountAggregate getAccountFromEvent(BaseEvent<String> event) {
-        return accountAggregateEventSourcingRepository.load(event.id).getWrappedAggregate().getAggregateRoot();
+        return this.accountAggregateEventSourcingRepository.load(event.id).getWrappedAggregate().getAggregateRoot();
     }
 
     private Account findExistingOrCreateQueryAccount(String id) {
-        return accountRepository.findById(id).isPresent() ? accountRepository.findById(id).get() : new Account();
+        return this.accountRepository.findById(id).isPresent() ? this.accountRepository.findById(id).get() : new Account();
     }
 
     private Account buildQueryAccount(AccountAggregate accountAggregate) {
-        Account account = findExistingOrCreateQueryAccount(accountAggregate.getId());
+        Account account = this.findExistingOrCreateQueryAccount(accountAggregate.getId());
 
         account.setId(accountAggregate.getId());
         account.setAccountBalance(accountAggregate.getAccountBalance());
@@ -42,6 +42,6 @@ public class AccountAggregateUpdater {
     }
 
     private void persistAccount(Account account) {
-        accountRepository.save(account);
+        this.accountRepository.save(account);
     }
 }

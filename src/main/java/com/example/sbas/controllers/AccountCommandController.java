@@ -19,20 +19,20 @@ public class AccountCommandController {
     @PostMapping
     public CompletableFuture<String> createAccount(
             @RequestBody AccountCreateDTO accountCreateDTO) {
-        return accountCommandService.createAccount(accountCreateDTO);
+        return this.accountCommandService.createAccount(accountCreateDTO);
     }
 
     @PutMapping(value = "/credits/{accountNumber}")
     public CompletableFuture<String> creditMoneyToAccount(
             @PathVariable(value = "accountNumber") String accountNumber,
             @RequestBody MoneyCreditDTO moneyCreditDTO) {
-        return accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
+        return this.accountCommandService.creditMoneyToAccount(accountNumber, moneyCreditDTO);
     }
 
     @PutMapping(value = "/debits/{accountNumber}")
     public CompletableFuture<String> debitMoneyFromAccount(
             @PathVariable(value = "accountNumber") String accountNumber,
             @RequestBody MoneyDebitDTO moneyDebitDTO) {
-        return accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
+        return this.accountCommandService.debitMoneyFromAccount(accountNumber, moneyDebitDTO);
     }
 }
