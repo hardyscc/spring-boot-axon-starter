@@ -1,0 +1,41 @@
+type Account {
+    accountBalance: Float!
+    currency: String
+    id: String
+    status: String
+}
+
+#input AccountCreateDTOInput {
+#    currency: String
+#    startingBalance: Float!
+#}
+#
+#input MoneyCreditDTOInput {
+#    creditAmount: Float!
+#    currency: String
+#}
+#
+#input MoneyDebitDTOInput {
+#    currency: String
+#    debitAmount: Float!
+#}
+#
+#type Mutation {
+#    debitMoneyFromAccount(
+#        input: MoneyDebitDTOInput
+#        accountNumber: String
+#    ): String
+#    creditMoneyToAccount(
+#        input: MoneyCreditDTOInput
+#        accountNumber: String
+#    ): String
+#    createAccount(input: AccountCreateDTOInput): String
+#}
+#
+#scalar ObjectScalar
+
+type Query {
+    #listEventsForAccount(accountNumber: String): [ObjectScalar]
+    account(accountNumber: String): Account
+}
+
