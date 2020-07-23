@@ -4,14 +4,12 @@ import com.example.sbas.entities.Account;
 import com.example.sbas.services.queries.AccountQueryService;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLQuery;
-import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Controller
-@GraphQLApi
+@Component
 @AllArgsConstructor
 public class AccountQueryResolver {
 

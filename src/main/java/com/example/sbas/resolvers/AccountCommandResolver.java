@@ -6,14 +6,12 @@ import com.example.sbas.dto.commands.MoneyDebitDTO;
 import com.example.sbas.services.commands.AccountCommandService;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLMutation;
-import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.CompletableFuture;
 
-@Controller
-@GraphQLApi
+@Component
 @AllArgsConstructor
 public class AccountCommandResolver {
 
