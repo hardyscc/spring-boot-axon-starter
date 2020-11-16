@@ -1,7 +1,9 @@
 package com.example.sbas.events;
 
 import com.example.sbas.aggregates.Status;
+import lombok.ToString;
 
+@ToString
 public class AccountHeldEvent extends BaseEvent<String> {
 
     public final Status status;

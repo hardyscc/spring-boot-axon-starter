@@ -1,5 +1,8 @@
 package com.example.sbas.events;
 
+import lombok.ToString;
+
+@ToString
 public class MoneyDebitedEvent extends BaseEvent<String> {
 
     public final double debitAmount;

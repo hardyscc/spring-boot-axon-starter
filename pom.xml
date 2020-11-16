@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <axon.version>4.3.3</axon.version>
+        <axon.version>4.4.4</axon.version>
         <graphql-java-kickstart.version>7.1.0</graphql-java-kickstart.version>
         <graphql-spqr.version>0.10.1</graphql-spqr.version>
         <springdoc.version>1.4.3</springdoc.version>
@@ -44,12 +44,12 @@
             <groupId>org.axonframework</groupId>
             <artifactId>axon-spring-boot-starter</artifactId>
             <version>${axon.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.axonframework</groupId>
-                    <artifactId>axon-server-connector</artifactId>
-                </exclusion>
-            </exclusions>
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.axonframework</groupId>-->
+            <!--                    <artifactId>axon-server-connector</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>com.graphql-java-kickstart</groupId>
